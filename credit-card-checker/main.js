@@ -93,4 +93,3 @@ const idInvalidCardCompanies = (results) => {
 }
 
 console.log(idInvalidCardCompanies(results));
-
