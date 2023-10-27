@@ -44,6 +44,30 @@ const pAequorFactoy = (num, arr) => {
     willLikelySurvive() {
       let cAndGFilter = this.dna.filter((strand) => strand === 'C' || strand === 'G');
       return cAndGFilter.length >= 9 ? true : false;
+    },
+    complementStrand() {
+      let cStrand = [];
+      for (let i = 0; i < this.dna.length; i++) {
+        const testDna = this.dna[i];
+        switch (testDna) {
+          case 'A':
+            cStrand.push('T');
+          break;
+          case 'T':
+            cStrand.push('A');
+          break;
+          case 'C':
+            cStrand.push('G');
+          break;
+          case 'G':
+            cStrand.push('C');
+          break;
+          default:
+            console.log('Could not find complementary DNA strand.');
+          
+        }
+      }
+      return cStrand;
     }
   }
 }
@@ -55,3 +79,6 @@ for (let i = 0; passedPObjs.length < 30; i++) {
     passedPObjs.push(pObj);
   }
 }
+
+const pObj1 = pAequorFactoy(10, mockUpStrand());
+pObj1.complementStrand();
